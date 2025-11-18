@@ -1,0 +1,14 @@
+{
+  "username": "github-user",
+  "encryptedToken": "",
+  "projects": [
+    {
+      "name": "Demo-Projekt",
+      "path": "C:/RPG/Demo",
+      "remoteUrl": "https://github.com/example/rpg-demo.git",
+      "branch": "main",
+      "lastSync": null
+    }
+  ],
+  "lastSyncByProject": {}
+}

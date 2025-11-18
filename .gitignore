@@ -1,0 +1,23 @@
+# Gradle
+.gradle/
+build/
+
+# IDE
+.idea/
+*.iml
+out/
+
+# Runtime / logs
+*.log
+hs_err_pid*
+
+# App config
+config.json
+
+# RPG Maker specifics
+save/
+*.rpgsave
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group = 'com.rpgmaker'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.eclipse.jgit:org.eclipse.jgit:6.10.0.202406032230-r'
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    testImplementation 'junit:junit:4.13.2'
+}
+
+test {
+    useJUnit()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test).configureEach {
+    systemProperty 'java.util.logging.config.file', "$projectDir/src/main/resources/logging.properties"
+}
+
+jar {
+    enabled = false
+}
+
+shadowJar {
+    archiveBaseName.set('RPGMaker-GitSync')
+    archiveClassifier.set('')
+    archiveVersion.set('1.0')
+    manifest {
+        attributes 'Main-Class': 'com.rpgmaker.gitsync.Main'
+    }
+}
+
+tasks.named('build') {
+    dependsOn shadowJar
+}
